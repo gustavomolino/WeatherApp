@@ -8,6 +8,7 @@ import { MyApp } from './app.component';
 import { WeatherApiPage } from '../pages/weather-api/weather-api'
 import { ForecastPage } from '../pages/forecast/forecast'
 import { WeatherPage } from '../pages/weather/weather'
+import { AppConstantsProvider } from '../providers/app-constants/app-constants';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { WeatherPage } from '../pages/weather/weather'
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AppConstantsProvider
   ]
 })
 export class AppModule {}
