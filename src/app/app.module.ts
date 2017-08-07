@@ -3,12 +3,14 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { HttpModule } from '@angular/http';
 
 import { MyApp } from './app.component';
 import { WeatherApiPage } from '../pages/weather-api/weather-api'
 import { ForecastPage } from '../pages/forecast/forecast'
 import { WeatherPage } from '../pages/weather/weather'
 import { AppConstantsProvider } from '../providers/app-constants/app-constants';
+import { WeatherApiProvider } from '../providers/weather-api/weather-api';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import { AppConstantsProvider } from '../providers/app-constants/app-constants';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -32,7 +35,8 @@ import { AppConstantsProvider } from '../providers/app-constants/app-constants';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AppConstantsProvider
+    AppConstantsProvider,
+    WeatherApiProvider
   ]
 })
 export class AppModule {}
